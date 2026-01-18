@@ -330,7 +330,7 @@ export default function OrderDetails() {
             </a>
           ) : (
             <div className="mt-4 text-xs text-zinc-400">
-              Add your Cash App handle in `VITE_CASH_APP_HANDLE`.
+              Add your Cash App handle in `VITE_CASH_APP_HANDLE` env variable.
             </div>
           )}
           {actionStatus ? (
