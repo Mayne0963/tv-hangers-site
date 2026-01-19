@@ -10,7 +10,7 @@ describe('estimateQuoteRange', () => {
       numberOfItems: 1,
     })
     expect(result.low).toBe(50)
-    expect(result.high).toBe(90)
+    expect(result.high).toBe(80)
     expect(result.high).toBeGreaterThan(result.low)
     expect(result.notes.length).toBeGreaterThan(0)
   })

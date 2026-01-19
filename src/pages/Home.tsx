@@ -16,11 +16,11 @@ const fallback: BusinessInfo = {
   name: 'A&J Mounting',
   tagline: 'TV mounting & wall hangings in Fort Wayne',
   serviceArea: { county: 'Allen County', city: 'Fort Wayne' },
-  differentiators: ['30% lower pricing than competitors', 'Own tools & transportation'],
+  differentiators: ['About 50% lower than the local average', 'Own tools & transportation'],
   services: [
     {
       title: 'TV Mounting',
-      desc: 'TV mounting is typically $50–$90 on drywall (you provide the TV + wall mount).',
+      desc: 'TV mounting is typically $50–$80 on drywall (you provide the TV + wall mount).',
     },
     { title: 'Picture Hanging', desc: 'Level placement for art, frames, and mirrors.' },
     { title: 'Wall Hangings', desc: 'Shelves, decor, and more (by request).' },
@@ -104,8 +104,8 @@ export default function Home() {
         <div className="rounded-2xl border border-border bg-surface p-4 md:col-span-2">
           <div className="text-sm font-semibold">Why choose us</div>
           <div className="mt-2 text-sm text-muted">
-            Youthful, respectful, and detail-focused installs with pricing about 30% lower
-            than many competitors.
+            Youthful, respectful, and detail-focused installs with pricing about 50% lower than
+            the local average.
           </div>
           <div className="mt-4 flex flex-wrap gap-2 text-xs">
             <span className="rounded-full bg-surface-2 px-3 py-1 ring-1 ring-border">

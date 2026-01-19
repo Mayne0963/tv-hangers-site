@@ -7,7 +7,7 @@ set value = jsonb_set(
       'title',
       'TV Mounting',
       'desc',
-      'TV mounting is typically $50–$90 on drywall (you provide the TV + wall mount).'
+      'TV mounting is typically $50–$80 on drywall (you provide the TV + wall mount).'
     ),
     jsonb_build_object('title', 'Picture & Art Hanging', 'desc', 'Level, centered placement with the right anchors.'),
     jsonb_build_object('title', 'Wall Hangings', 'desc', 'Mirrors, shelves, and more (by request).')
@@ -43,4 +43,3 @@ set value = (
 )
 where key = 'faq.items'
   and not (value @> jsonb_build_array(jsonb_build_object('q', 'Do you offer cable concealment?')));
-

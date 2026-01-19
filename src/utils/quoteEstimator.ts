@@ -19,7 +19,7 @@ export function estimateQuoteRange(inputs: QuoteInputs): {
     notes.push('We do not offer cable concealment as part of our standard installation.')
 
     const low = 50 * items
-    const high = 90 * items
+    const high = 80 * items
 
     notes.push('Final price is confirmed after we review your details and photos.')
     return { low, high, notes }

@@ -347,7 +347,7 @@ values
       'tagline', 'Professional TV & wall-hanging installs in Fort Wayne',
       'serviceArea', jsonb_build_object('county', 'Allen County', 'city', 'Fort Wayne'),
       'differentiators', jsonb_build_array(
-        '30% lower pricing than competitors',
+        'About 50% lower than the local average',
         'We bring our own tools and transportation',
         'Clean, careful installs with respect for your home'
       ),
