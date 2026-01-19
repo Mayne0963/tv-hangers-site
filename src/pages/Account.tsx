@@ -26,54 +26,54 @@ export default function Account() {
     <div className="grid gap-6 md:grid-cols-2">
       <div>
         <h1 className="text-2xl font-semibold">Account</h1>
-        <p className="mt-1 text-sm text-zinc-300">
+        <p className="mt-1 text-sm text-muted">
           Signed-in customers can place orders, leave reviews, and contact support after a
           completed job.
         </p>
       </div>
 
-      <div className="rounded-2xl border border-zinc-800 bg-zinc-950 p-5">
+      <div className="rounded-2xl border border-border bg-surface p-5">
         {!user ? (
           <div className="grid gap-3">
             <label className="grid gap-1">
-              <span className="text-xs text-zinc-300">Email</span>
+              <span className="text-xs text-subtle">Email</span>
               <input
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="h-11 rounded-xl bg-zinc-900 px-3 text-sm text-zinc-50 ring-1 ring-zinc-800"
+                className="h-11 rounded-xl bg-bg px-3 text-sm text-fg ring-1 ring-border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus"
               />
             </label>
             <button
               type="button"
               onClick={() => void onSendLink()}
               disabled={status === 'sending' || !email}
-              className="h-11 rounded-xl bg-emerald-500 text-sm font-semibold text-zinc-950 disabled:opacity-50"
+              className="h-11 rounded-xl bg-brand text-sm font-semibold text-brand-fg transition hover:bg-brand-hover disabled:opacity-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
             >
               {status === 'sending' ? 'Sending…' : 'Send sign-in link'}
             </button>
             {status === 'sent' ? (
-              <div className="rounded-xl bg-emerald-500/10 px-3 py-2 text-sm text-emerald-200 ring-1 ring-emerald-500/20">
+              <div className="rounded-xl bg-accent/15 px-3 py-2 text-sm text-fg ring-1 ring-accent/25">
                 Check your email for the sign-in link.
               </div>
             ) : null}
             {status === 'error' ? (
-              <div className="rounded-xl bg-red-500/10 px-3 py-2 text-sm text-red-200 ring-1 ring-red-500/20">
+              <div className="rounded-xl bg-danger/10 px-3 py-2 text-sm text-fg ring-1 ring-danger/20">
                 {errorMsg || 'Something went wrong.'}
               </div>
             ) : null}
-            <div className="text-xs text-zinc-400">
+            <div className="text-xs text-subtle">
               Your email address is your verification.
             </div>
           </div>
         ) : (
           <div className="grid gap-3">
-            <div className="rounded-xl bg-zinc-900 px-3 py-3 text-sm text-zinc-200 ring-1 ring-zinc-800">
-              Signed in as <span className="font-medium text-zinc-50">{user.email}</span>
+            <div className="rounded-xl bg-surface-2 px-3 py-3 text-sm text-muted ring-1 ring-border">
+              Signed in as <span className="font-medium text-fg">{user.email}</span>
             </div>
             <button
               type="button"
               onClick={() => void signOut()}
-              className="h-11 rounded-xl bg-zinc-900 text-sm font-semibold text-zinc-50 ring-1 ring-zinc-800 hover:bg-zinc-800"
+              className="h-11 rounded-xl bg-surface-2 text-sm font-semibold text-fg ring-1 ring-border transition hover:bg-surface focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
             >
               Sign out
             </button>
@@ -86,7 +86,7 @@ export default function Account() {
                   display_name: (user.email ?? 'Customer').split('@')[0],
                 })
               }}
-              className="h-11 rounded-xl bg-zinc-900 text-sm font-semibold text-zinc-50 ring-1 ring-zinc-800 hover:bg-zinc-800"
+              className="h-11 rounded-xl bg-surface-2 text-sm font-semibold text-fg ring-1 ring-border transition hover:bg-surface focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
             >
               Create/update my profile
             </button>
@@ -96,4 +96,3 @@ export default function Account() {
     </div>
   )
 }
-

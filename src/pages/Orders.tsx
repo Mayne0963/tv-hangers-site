@@ -41,9 +41,9 @@ export default function Orders() {
 
   if (!user) {
     return (
-      <div className="rounded-2xl border border-zinc-800 bg-zinc-950 p-6">
-        <div className="text-sm text-zinc-300">Sign in to view your orders.</div>
-        <Link to="/account" className="mt-3 inline-block text-sm text-emerald-300">
+      <div className="rounded-2xl border border-border bg-surface p-6">
+        <div className="text-sm text-muted">Sign in to view your orders.</div>
+        <Link to="/account" className="mt-3 inline-block text-sm font-semibold text-accent">
           Go to account
         </Link>
       </div>
@@ -55,42 +55,41 @@ export default function Orders() {
       <div className="flex items-end justify-between gap-4">
         <div>
           <h1 className="text-2xl font-semibold">My Orders</h1>
-          <p className="mt-1 text-sm text-zinc-300">Track status, reviews, and support.</p>
+          <p className="mt-1 text-sm text-muted">Track status, reviews, and support.</p>
         </div>
         <Link
           to="/quote"
-          className="rounded-xl bg-emerald-500 px-4 py-2 text-sm font-semibold text-zinc-950 hover:bg-emerald-400"
+          className="rounded-xl bg-brand px-4 py-2 text-sm font-semibold text-brand-fg transition hover:bg-brand-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
         >
           Create order
         </Link>
       </div>
 
       {loading ? (
-        <div className="h-36 animate-pulse rounded-2xl border border-zinc-800 bg-zinc-950" />
+        <div className="h-36 animate-pulse rounded-2xl border border-border bg-surface" />
       ) : orders.length ? (
         <div className="grid gap-3">
           {orders.map((o) => (
             <Link
               key={o.id}
               to={`/orders/${o.id}`}
-              className="flex items-center justify-between gap-4 rounded-2xl border border-zinc-800 bg-zinc-950 p-4 hover:bg-zinc-900"
+              className="flex items-center justify-between gap-4 rounded-2xl border border-border bg-surface p-4 transition hover:bg-surface-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
             >
               <div>
                 <div className="text-sm font-semibold">{o.job_type}</div>
-                <div className="mt-1 text-xs text-zinc-400">
+                <div className="mt-1 text-xs text-subtle">
                   {new Date(o.created_at).toLocaleDateString()} • {o.status}
                 </div>
               </div>
-              <div className="text-sm text-emerald-300">View</div>
+              <div className="text-sm font-semibold text-accent">View</div>
             </Link>
           ))}
         </div>
       ) : (
-        <div className="rounded-2xl border border-zinc-800 bg-zinc-950 p-6 text-sm text-zinc-300">
+        <div className="rounded-2xl border border-border bg-surface p-6 text-sm text-muted">
           No orders yet.
         </div>
       )}
     </div>
   )
 }
-

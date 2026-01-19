@@ -38,24 +38,24 @@ export default function AdminReviewsTab() {
   }, [])
 
   return (
-    <div className="rounded-2xl border border-zinc-800 bg-zinc-950 p-5">
+    <div className="rounded-2xl border border-border bg-surface p-5">
       <div className="text-sm font-semibold">Review moderation</div>
       {loading ? (
-        <div className="mt-4 h-36 animate-pulse rounded-xl bg-zinc-900" />
+        <div className="mt-4 h-36 animate-pulse rounded-xl bg-surface-2" />
       ) : (
         <div className="mt-4 grid gap-3">
           {reviews.map((r) => (
-            <div key={r.id} className="rounded-xl bg-zinc-900 p-4 ring-1 ring-zinc-800">
+            <div key={r.id} className="rounded-xl bg-surface-2 p-4 ring-1 ring-border">
               <div className="flex items-start justify-between gap-3">
                 <div>
-                  <div className="text-sm font-semibold text-zinc-50">{r.display_name}</div>
-                  <div className="mt-1 text-xs text-zinc-400">
+                  <div className="text-sm font-semibold text-fg">{r.display_name}</div>
+                  <div className="mt-1 text-xs text-subtle">
                     {new Date(r.created_at).toLocaleString()} • {r.status}
                   </div>
                 </div>
                 <StarRating value={r.rating} />
               </div>
-              <div className="mt-3 text-sm text-zinc-200">{r.body}</div>
+              <div className="mt-3 text-sm text-muted">{r.body}</div>
               <div className="mt-4 flex flex-wrap gap-2">
                 {statuses.map((s) => (
                   <button
@@ -66,10 +66,10 @@ export default function AdminReviewsTab() {
                       setReviews((rows) => rows.map((x) => (x.id === r.id ? { ...x, status: s } : x)))
                     }}
                     className={[
-                      'rounded-lg px-3 py-2 text-xs font-semibold ring-1 ring-zinc-800',
+                      'rounded-lg px-3 py-2 text-xs font-semibold ring-1 ring-border transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus focus-visible:ring-offset-2 focus-visible:ring-offset-bg',
                       r.status === s
-                        ? 'bg-emerald-500 text-zinc-950'
-                        : 'bg-zinc-950 text-zinc-50 hover:bg-zinc-800',
+                        ? 'bg-brand text-brand-fg'
+                        : 'bg-surface text-fg hover:bg-bg',
                     ].join(' ')}
                   >
                     {s}
@@ -83,4 +83,3 @@ export default function AdminReviewsTab() {
     </div>
   )
 }
-

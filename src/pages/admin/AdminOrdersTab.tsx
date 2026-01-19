@@ -35,20 +35,20 @@ export default function AdminOrdersTab() {
   }, [])
 
   return (
-    <div className="rounded-2xl border border-zinc-800 bg-zinc-950 p-5">
+    <div className="rounded-2xl border border-border bg-surface p-5">
       <div className="text-sm font-semibold">Orders</div>
       {loading ? (
-        <div className="mt-4 h-36 animate-pulse rounded-xl bg-zinc-900" />
+        <div className="mt-4 h-36 animate-pulse rounded-xl bg-surface-2" />
       ) : (
         <div className="mt-4 grid gap-3">
           {orders.map((o) => (
             <div
               key={o.id}
-              className="flex flex-col gap-3 rounded-xl bg-zinc-900 p-4 ring-1 ring-zinc-800 md:flex-row md:items-center md:justify-between"
+              className="flex flex-col gap-3 rounded-xl bg-surface-2 p-4 ring-1 ring-border md:flex-row md:items-center md:justify-between"
             >
               <div>
-                <div className="text-sm font-semibold text-zinc-50">{o.job_type}</div>
-                <div className="mt-1 text-xs text-zinc-400">
+                <div className="text-sm font-semibold text-fg">{o.job_type}</div>
+                <div className="mt-1 text-xs text-subtle">
                   {o.id} • {o.status} • {new Date(o.created_at).toLocaleString()}
                 </div>
               </div>
@@ -62,10 +62,10 @@ export default function AdminOrdersTab() {
                       setOrders((rows) => rows.map((r) => (r.id === o.id ? { ...r, status: s } : r)))
                     }}
                     className={[
-                      'rounded-lg px-3 py-2 text-xs font-semibold ring-1 ring-zinc-800',
+                      'rounded-lg px-3 py-2 text-xs font-semibold ring-1 ring-border transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus focus-visible:ring-offset-2 focus-visible:ring-offset-bg',
                       o.status === s
-                        ? 'bg-emerald-500 text-zinc-950'
-                        : 'bg-zinc-950 text-zinc-50 hover:bg-zinc-800',
+                        ? 'bg-brand text-brand-fg'
+                        : 'bg-surface text-fg hover:bg-bg',
                     ].join(' ')}
                   >
                     {s}
@@ -79,4 +79,3 @@ export default function AdminOrdersTab() {
     </div>
   )
 }
-

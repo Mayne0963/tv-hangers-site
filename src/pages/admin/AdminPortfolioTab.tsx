@@ -78,60 +78,60 @@ export default function AdminPortfolioTab() {
 
   return (
     <div className="grid gap-4 md:grid-cols-2">
-      <div className="rounded-2xl border border-zinc-800 bg-zinc-950 p-5">
+      <div className="rounded-2xl border border-border bg-surface p-5">
         <div className="text-sm font-semibold">Create project</div>
         <div className="mt-4 grid gap-3">
           <label className="grid gap-1">
-            <span className="text-xs text-zinc-300">Slug</span>
+            <span className="text-xs text-subtle">Slug</span>
             <input
               value={newProject.slug}
               onChange={(e) => setNewProject((s) => ({ ...s, slug: e.target.value }))}
-              className="h-11 rounded-xl bg-zinc-900 px-3 text-sm text-zinc-50 ring-1 ring-zinc-800"
+              className="h-11 rounded-xl bg-bg px-3 text-sm text-fg ring-1 ring-border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus"
             />
           </label>
           <label className="grid gap-1">
-            <span className="text-xs text-zinc-300">Title</span>
+            <span className="text-xs text-subtle">Title</span>
             <input
               value={newProject.title}
               onChange={(e) => setNewProject((s) => ({ ...s, title: e.target.value }))}
-              className="h-11 rounded-xl bg-zinc-900 px-3 text-sm text-zinc-50 ring-1 ring-zinc-800"
+              className="h-11 rounded-xl bg-bg px-3 text-sm text-fg ring-1 ring-border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus"
             />
           </label>
           <div className="grid gap-3 md:grid-cols-2">
             <label className="grid gap-1">
-              <span className="text-xs text-zinc-300">Category</span>
+              <span className="text-xs text-subtle">Category</span>
               <input
                 value={newProject.category}
                 onChange={(e) => setNewProject((s) => ({ ...s, category: e.target.value }))}
-                className="h-11 rounded-xl bg-zinc-900 px-3 text-sm text-zinc-50 ring-1 ring-zinc-800"
+                className="h-11 rounded-xl bg-bg px-3 text-sm text-fg ring-1 ring-border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus"
               />
             </label>
             <label className="grid gap-1">
-              <span className="text-xs text-zinc-300">Room type</span>
+              <span className="text-xs text-subtle">Room type</span>
               <input
                 value={newProject.room_type}
                 onChange={(e) => setNewProject((s) => ({ ...s, room_type: e.target.value }))}
-                className="h-11 rounded-xl bg-zinc-900 px-3 text-sm text-zinc-50 ring-1 ring-zinc-800"
+                className="h-11 rounded-xl bg-bg px-3 text-sm text-fg ring-1 ring-border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus"
               />
             </label>
           </div>
           <label className="grid gap-1">
-            <span className="text-xs text-zinc-300">Summary</span>
+            <span className="text-xs text-subtle">Summary</span>
             <input
               value={newProject.summary}
               onChange={(e) => setNewProject((s) => ({ ...s, summary: e.target.value }))}
-              className="h-11 rounded-xl bg-zinc-900 px-3 text-sm text-zinc-50 ring-1 ring-zinc-800"
+              className="h-11 rounded-xl bg-bg px-3 text-sm text-fg ring-1 ring-border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus"
             />
           </label>
           <label className="grid gap-1">
-            <span className="text-xs text-zinc-300">Details</span>
+            <span className="text-xs text-subtle">Details</span>
             <textarea
               value={newProject.details}
               onChange={(e) => setNewProject((s) => ({ ...s, details: e.target.value }))}
-              className="min-h-24 rounded-xl bg-zinc-900 px-3 py-2 text-sm text-zinc-50 ring-1 ring-zinc-800"
+              className="min-h-24 rounded-xl bg-bg px-3 py-2 text-sm text-fg ring-1 ring-border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus"
             />
           </label>
-          <label className="flex items-center gap-2 rounded-xl bg-zinc-900 px-3 py-3 text-sm text-zinc-200 ring-1 ring-zinc-800">
+          <label className="flex items-center gap-2 rounded-xl bg-surface-2 px-3 py-3 text-sm text-muted ring-1 ring-border">
             <input
               type="checkbox"
               checked={newProject.featured}
@@ -169,17 +169,17 @@ export default function AdminPortfolioTab() {
               })
             }}
             disabled={!newProject.slug || !newProject.title}
-            className="h-11 rounded-xl bg-emerald-500 text-sm font-semibold text-zinc-950 disabled:opacity-50 hover:bg-emerald-400"
+            className="h-11 rounded-xl bg-brand text-sm font-semibold text-brand-fg transition hover:bg-brand-hover disabled:opacity-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
           >
             Create
           </button>
         </div>
       </div>
 
-      <div className="rounded-2xl border border-zinc-800 bg-zinc-950 p-5">
+      <div className="rounded-2xl border border-border bg-surface p-5">
         <div className="flex items-center justify-between gap-3">
           <div className="text-sm font-semibold">Projects</div>
-          <div className="text-xs text-zinc-400">{loading ? 'Loading…' : `${projects.length}`}</div>
+          <div className="text-xs text-subtle">{loading ? 'Loading…' : `${projects.length}`}</div>
         </div>
         <div className="mt-4 grid gap-2">
           {projects.map((p) => (
@@ -188,25 +188,25 @@ export default function AdminPortfolioTab() {
               type="button"
               onClick={() => setSelectedId(p.id)}
               className={[
-                'w-full rounded-xl px-3 py-3 text-left ring-1 ring-zinc-800',
-                selectedId === p.id ? 'bg-zinc-800' : 'bg-zinc-900 hover:bg-zinc-800',
+                'w-full rounded-xl px-3 py-3 text-left ring-1 ring-border transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus focus-visible:ring-offset-2 focus-visible:ring-offset-bg',
+                selectedId === p.id ? 'bg-surface-2' : 'bg-surface hover:bg-surface-2',
               ].join(' ')}
             >
-              <div className="text-sm font-semibold text-zinc-50">{p.title}</div>
-              <div className="mt-1 text-xs text-zinc-400">{p.slug}</div>
+              <div className="text-sm font-semibold text-fg">{p.title}</div>
+              <div className="mt-1 text-xs text-subtle">{p.slug}</div>
             </button>
           ))}
         </div>
 
         {selectedId ? (
-          <div className="mt-6 rounded-2xl border border-zinc-800 bg-zinc-950 p-4">
+          <div className="mt-6 rounded-2xl border border-border bg-surface p-4">
             <div className="text-sm font-semibold">Images</div>
             <div className="mt-3 flex gap-2">
               <input
                 value={newImageUrl}
                 onChange={(e) => setNewImageUrl(e.target.value)}
                 placeholder="Paste image URL (or storage path)"
-                className="h-11 flex-1 rounded-xl bg-zinc-900 px-3 text-sm text-zinc-50 ring-1 ring-zinc-800"
+                className="h-11 flex-1 rounded-xl bg-bg px-3 text-sm text-fg ring-1 ring-border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus"
               />
               <button
                 type="button"
@@ -222,7 +222,7 @@ export default function AdminPortfolioTab() {
                   setImages((rows) => [...rows, data as ImageRow])
                   setNewImageUrl('')
                 }}
-                className="h-11 rounded-xl bg-emerald-500 px-4 text-sm font-semibold text-zinc-950 hover:bg-emerald-400"
+                className="h-11 rounded-xl bg-brand px-4 text-sm font-semibold text-brand-fg transition hover:bg-brand-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
               >
                 Add
               </button>
@@ -231,11 +231,11 @@ export default function AdminPortfolioTab() {
               {images.map((img) => (
                 <div
                   key={img.id}
-                  className="flex items-center justify-between gap-3 rounded-xl bg-zinc-900 px-3 py-2 ring-1 ring-zinc-800"
+                  className="flex items-center justify-between gap-3 rounded-xl bg-surface-2 px-3 py-2 ring-1 ring-border"
                 >
                   <div className="min-w-0">
-                    <div className="truncate text-sm text-zinc-200">{img.storage_path}</div>
-                    <div className="text-xs text-zinc-500">sort: {img.sort_order}</div>
+                    <div className="truncate text-sm text-muted">{img.storage_path}</div>
+                    <div className="text-xs text-subtle">sort: {img.sort_order}</div>
                   </div>
                   <button
                     type="button"
@@ -243,7 +243,7 @@ export default function AdminPortfolioTab() {
                       await supabase.from('portfolio_images').delete().eq('id', img.id)
                       setImages((rows) => rows.filter((x) => x.id !== img.id))
                     }}
-                    className="rounded-lg bg-zinc-950 px-3 py-2 text-xs font-semibold text-zinc-50 ring-1 ring-zinc-800 hover:bg-zinc-800"
+                    className="rounded-lg bg-danger px-3 py-2 text-xs font-semibold text-danger-fg ring-1 ring-danger/30 transition hover:bg-danger-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
                   >
                     Delete
                   </button>
@@ -256,4 +256,3 @@ export default function AdminPortfolioTab() {
     </div>
   )
 }
-

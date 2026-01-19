@@ -6,31 +6,31 @@ export default function AdminPushTab() {
   const [pushStatus, setPushStatus] = useState('')
 
   return (
-    <div className="rounded-2xl border border-zinc-800 bg-zinc-950 p-5">
+    <div className="rounded-2xl border border-border bg-surface p-5">
       <div className="text-sm font-semibold">Send a push notification</div>
       <div className="mt-4 grid gap-3 md:grid-cols-2">
         <label className="grid gap-1">
-          <span className="text-xs text-zinc-300">Title</span>
+          <span className="text-xs text-subtle">Title</span>
           <input
             value={pushForm.title}
             onChange={(e) => setPushForm((s) => ({ ...s, title: e.target.value }))}
-            className="h-11 rounded-xl bg-zinc-900 px-3 text-sm text-zinc-50 ring-1 ring-zinc-800"
+            className="h-11 rounded-xl bg-bg px-3 text-sm text-fg ring-1 ring-border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus"
           />
         </label>
         <label className="grid gap-1">
-          <span className="text-xs text-zinc-300">URL</span>
+          <span className="text-xs text-subtle">URL</span>
           <input
             value={pushForm.url}
             onChange={(e) => setPushForm((s) => ({ ...s, url: e.target.value }))}
-            className="h-11 rounded-xl bg-zinc-900 px-3 text-sm text-zinc-50 ring-1 ring-zinc-800"
+            className="h-11 rounded-xl bg-bg px-3 text-sm text-fg ring-1 ring-border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus"
           />
         </label>
         <label className="grid gap-1 md:col-span-2">
-          <span className="text-xs text-zinc-300">Body</span>
+          <span className="text-xs text-subtle">Body</span>
           <textarea
             value={pushForm.body}
             onChange={(e) => setPushForm((s) => ({ ...s, body: e.target.value }))}
-            className="min-h-28 rounded-xl bg-zinc-900 px-3 py-2 text-sm text-zinc-50 ring-1 ring-zinc-800"
+            className="min-h-28 rounded-xl bg-bg px-3 py-2 text-sm text-fg ring-1 ring-border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus"
           />
         </label>
         <button
@@ -61,12 +61,12 @@ export default function AdminPushTab() {
                 : 'Failed',
             )
           }}
-          className="h-11 rounded-xl bg-emerald-500 text-sm font-semibold text-zinc-950 hover:bg-emerald-400"
+          className="h-11 rounded-xl bg-brand text-sm font-semibold text-brand-fg transition hover:bg-brand-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
         >
           Send
         </button>
         {pushStatus ? (
-          <div className="rounded-xl bg-zinc-900 px-3 py-2 text-sm text-zinc-200 ring-1 ring-zinc-800">
+          <div className="rounded-xl bg-surface-2 px-3 py-2 text-sm text-fg ring-1 ring-border">
             {pushStatus}
           </div>
         ) : null}
@@ -74,4 +74,3 @@ export default function AdminPushTab() {
     </div>
   )
 }
-

@@ -9,11 +9,10 @@ export default function StarRating({ value }: { value: number }) {
           key={i}
           className={[
             'h-4 w-4',
-            i < v ? 'fill-emerald-400 text-emerald-400' : 'text-zinc-600',
+            i < v ? 'fill-accent text-accent' : 'text-subtle',
           ].join(' ')}
         />
       ))}
     </div>
   )
 }
-

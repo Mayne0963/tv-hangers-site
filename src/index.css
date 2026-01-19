@@ -11,6 +11,52 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  color-scheme: dark;
+
+  --c-bg: 16 14 12;
+  --c-surface: 24 21 18;
+  --c-surface2: 34 30 26;
+  --c-border: 56 50 43;
+  --c-fg: 250 246 240;
+  --c-muted: 204 194 183;
+  --c-subtle: 164 152 140;
+  --c-brand: 230 127 77;
+  --c-brand-hover: 205 104 58;
+  --c-brand-fg: 27 18 10;
+  --c-accent: 55 168 160;
+  --c-accent-hover: 45 143 137;
+  --c-accent-fg: 10 20 19;
+  --c-focus: 242 179 100;
+  --c-danger: 232 93 89;
+  --c-danger-hover: 210 73 69;
+  --c-danger-fg: 27 18 10;
+}
+
+.dark {
+  color-scheme: dark;
+}
+
+.light {
+  color-scheme: light;
+
+  --c-bg: 252 250 247;
+  --c-surface: 255 255 255;
+  --c-surface2: 246 240 232;
+  --c-border: 228 219 205;
+  --c-fg: 30 24 19;
+  --c-muted: 95 83 72;
+  --c-subtle: 122 110 98;
+  --c-brand: 184 80 36;
+  --c-brand-hover: 160 64 24;
+  --c-brand-fg: 255 255 255;
+  --c-accent: 20 110 105;
+  --c-accent-hover: 16 92 88;
+  --c-accent-fg: 255 255 255;
+  --c-focus: 226 153 78;
+  --c-danger: 188 48 45;
+  --c-danger-hover: 160 36 33;
+  --c-danger-fg: 255 255 255;
 }
 
 html,
@@ -20,7 +66,8 @@ body {
 
 body {
   margin: 0;
-  background: #09090b;
+  background: rgb(var(--c-bg));
+  color: rgb(var(--c-fg));
 }
 
 * {

@@ -26,19 +26,19 @@ export default function Admin() {
 
   if (!user) {
     return (
-      <div className="rounded-2xl border border-zinc-800 bg-zinc-950 p-6 text-sm text-zinc-300">
+      <div className="rounded-2xl border border-border bg-surface p-6 text-sm text-muted">
         Sign in first.
       </div>
     )
   }
 
   if (adminLoading) {
-    return <div className="h-48 animate-pulse rounded-2xl border border-zinc-800 bg-zinc-950" />
+    return <div className="h-48 animate-pulse rounded-2xl border border-border bg-surface" />
   }
 
   if (!isAdmin) {
     return (
-      <div className="rounded-2xl border border-zinc-800 bg-zinc-950 p-6 text-sm text-zinc-300">
+      <div className="rounded-2xl border border-border bg-surface p-6 text-sm text-muted">
         This account is not an admin.
       </div>
     )
@@ -49,7 +49,7 @@ export default function Admin() {
       <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
         <div>
           <h1 className="text-2xl font-semibold">Admin</h1>
-          <p className="mt-1 text-sm text-zinc-300">CMS, moderation, and orders.</p>
+          <p className="mt-1 text-sm text-muted">CMS, moderation, and orders.</p>
         </div>
         <div className="flex flex-wrap gap-2">
           {tabs.map((t) => (
@@ -58,10 +58,10 @@ export default function Admin() {
               type="button"
               onClick={() => setTab(t.id)}
               className={[
-                'rounded-xl px-3 py-2 text-sm ring-1 ring-zinc-800',
+                'rounded-xl px-3 py-2 text-sm ring-1 ring-border transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus focus-visible:ring-offset-2 focus-visible:ring-offset-bg',
                 tab === t.id
-                  ? 'bg-emerald-500 text-zinc-950'
-                  : 'bg-zinc-950 text-zinc-50 hover:bg-zinc-900',
+                  ? 'bg-brand text-brand-fg'
+                  : 'bg-surface text-fg hover:bg-surface-2',
               ].join(' ')}
             >
               {t.label}

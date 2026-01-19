@@ -44,28 +44,28 @@ export default function AdminCmsTab() {
 
   return (
     <div className="grid gap-4 md:grid-cols-2">
-      <div className="rounded-2xl border border-zinc-800 bg-zinc-950 p-5">
+      <div className="rounded-2xl border border-border bg-surface p-5">
         <div className="text-sm font-semibold">Business info</div>
         {loading || !business ? (
-          <div className="mt-3 h-36 animate-pulse rounded-xl bg-zinc-900" />
+          <div className="mt-3 h-36 animate-pulse rounded-xl bg-surface-2" />
         ) : (
           <div className="mt-4 grid gap-3">
             <label className="grid gap-1">
-              <span className="text-xs text-zinc-300">Name</span>
+              <span className="text-xs text-subtle">Name</span>
               <input
                 value={business.name}
                 onChange={(e) => setBusiness((s) => (s ? { ...s, name: e.target.value } : s))}
-                className="h-11 rounded-xl bg-zinc-900 px-3 text-sm text-zinc-50 ring-1 ring-zinc-800"
+                className="h-11 rounded-xl bg-bg px-3 text-sm text-fg ring-1 ring-border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus"
               />
             </label>
             <label className="grid gap-1">
-              <span className="text-xs text-zinc-300">Tagline</span>
+              <span className="text-xs text-subtle">Tagline</span>
               <input
                 value={business.tagline}
                 onChange={(e) =>
                   setBusiness((s) => (s ? { ...s, tagline: e.target.value } : s))
                 }
-                className="h-11 rounded-xl bg-zinc-900 px-3 text-sm text-zinc-50 ring-1 ring-zinc-800"
+                className="h-11 rounded-xl bg-bg px-3 text-sm text-fg ring-1 ring-border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus"
               />
             </label>
             <button
@@ -78,12 +78,12 @@ export default function AdminCmsTab() {
                   .upsert({ key: 'business.info', value: business })
                 setSaveStatus(error ? 'Save failed' : 'Saved')
               }}
-              className="h-11 rounded-xl bg-emerald-500 text-sm font-semibold text-zinc-950 hover:bg-emerald-400"
+              className="h-11 rounded-xl bg-brand text-sm font-semibold text-brand-fg transition hover:bg-brand-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
             >
               Save
             </button>
             {saveStatus ? (
-              <div className="rounded-xl bg-zinc-900 px-3 py-2 text-sm text-zinc-200 ring-1 ring-zinc-800">
+              <div className="rounded-xl bg-surface-2 px-3 py-2 text-sm text-fg ring-1 ring-border">
                 {saveStatus}
               </div>
             ) : null}
@@ -91,11 +91,11 @@ export default function AdminCmsTab() {
         )}
       </div>
 
-      <div className="rounded-2xl border border-zinc-800 bg-zinc-950 p-5">
+      <div className="rounded-2xl border border-border bg-surface p-5">
         <div className="text-sm font-semibold">FAQ</div>
         <div className="mt-3 grid gap-3">
           {faq.map((item, idx) => (
-            <div key={idx} className="rounded-xl bg-zinc-900 p-3 ring-1 ring-zinc-800">
+            <div key={idx} className="rounded-xl bg-surface-2 p-3 ring-1 ring-border">
               <input
                 value={item.q}
                 onChange={(e) =>
@@ -103,7 +103,7 @@ export default function AdminCmsTab() {
                     s.map((x, i) => (i === idx ? { ...x, q: e.target.value } : x)),
                   )
                 }
-                className="h-10 w-full rounded-lg bg-zinc-950 px-3 text-sm text-zinc-50 ring-1 ring-zinc-800"
+                className="h-10 w-full rounded-lg bg-bg px-3 text-sm text-fg ring-1 ring-border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus"
               />
               <textarea
                 value={item.a}
@@ -112,7 +112,7 @@ export default function AdminCmsTab() {
                     s.map((x, i) => (i === idx ? { ...x, a: e.target.value } : x)),
                   )
                 }
-                className="mt-2 min-h-20 w-full rounded-lg bg-zinc-950 px-3 py-2 text-sm text-zinc-50 ring-1 ring-zinc-800"
+                className="mt-2 min-h-20 w-full rounded-lg bg-bg px-3 py-2 text-sm text-fg ring-1 ring-border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus"
               />
             </div>
           ))}
@@ -121,7 +121,7 @@ export default function AdminCmsTab() {
             <button
               type="button"
               onClick={() => setFaq((s) => [...s, { q: '', a: '' }])}
-              className="h-11 rounded-xl bg-zinc-900 px-4 text-sm font-semibold text-zinc-50 ring-1 ring-zinc-800 hover:bg-zinc-800"
+              className="h-11 rounded-xl bg-surface-2 px-4 text-sm font-semibold text-fg ring-1 ring-border transition hover:bg-surface focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
             >
               Add
             </button>
@@ -134,7 +134,7 @@ export default function AdminCmsTab() {
                   .upsert({ key: 'faq.items', value: faq })
                 setSaveStatus(error ? 'Save failed' : 'Saved')
               }}
-              className="h-11 rounded-xl bg-emerald-500 px-4 text-sm font-semibold text-zinc-950 hover:bg-emerald-400"
+              className="h-11 rounded-xl bg-brand px-4 text-sm font-semibold text-brand-fg transition hover:bg-brand-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
             >
               Save
             </button>
@@ -144,4 +144,3 @@ export default function AdminCmsTab() {
     </div>
   )
 }
-

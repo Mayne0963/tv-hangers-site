@@ -27,10 +27,10 @@ export default function InstallPrompt() {
 
   return (
     <div className="fixed inset-x-0 bottom-4 z-50 px-4">
-      <div className="mx-auto flex w-full max-w-2xl flex-col gap-3 rounded-2xl border border-zinc-800 bg-zinc-950/95 p-4 shadow-xl backdrop-blur md:flex-row md:items-center md:justify-between">
+      <div className="mx-auto flex w-full max-w-2xl flex-col gap-3 rounded-2xl border border-border bg-bg/95 p-4 shadow-xl backdrop-blur md:flex-row md:items-center md:justify-between">
         <div>
-          <div className="text-sm font-semibold text-zinc-50">Add to Home Screen</div>
-          <div className="text-xs text-zinc-300">
+          <div className="text-sm font-semibold text-fg">Add to Home Screen</div>
+          <div className="text-xs text-muted">
             Install for quick access, offline viewing, and service updates.
           </div>
         </div>
@@ -38,7 +38,7 @@ export default function InstallPrompt() {
           <button
             type="button"
             onClick={() => setOpen(false)}
-            className="rounded-xl bg-zinc-900 px-3 py-2 text-sm text-zinc-50 ring-1 ring-zinc-800 hover:bg-zinc-800"
+            className="rounded-xl bg-surface px-3 py-2 text-sm text-fg ring-1 ring-border transition hover:bg-surface-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
           >
             Not now
           </button>
@@ -50,7 +50,7 @@ export default function InstallPrompt() {
               setOpen(false)
               setDeferred(null)
             }}
-            className="inline-flex items-center gap-2 rounded-xl bg-emerald-500 px-3 py-2 text-sm font-medium text-zinc-950 hover:bg-emerald-400"
+            className="inline-flex items-center gap-2 rounded-xl bg-brand px-3 py-2 text-sm font-semibold text-brand-fg transition hover:bg-brand-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
           >
             <Download className="h-4 w-4" />
             Install
@@ -60,4 +60,3 @@ export default function InstallPrompt() {
     </div>
   )
 }
-

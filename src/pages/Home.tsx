@@ -33,22 +33,22 @@ export default function Home() {
 
   return (
     <div className="flex flex-col gap-10">
-      <section className="rounded-3xl border border-zinc-800 bg-gradient-to-br from-zinc-950 via-zinc-950 to-zinc-900 p-6 md:p-10">
+      <section className="rounded-3xl border border-border bg-gradient-to-br from-surface via-bg to-surface-2 p-6 md:p-10">
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 rounded-full bg-zinc-900 px-3 py-1 text-xs text-zinc-200 ring-1 ring-zinc-800">
+            <div className="inline-flex items-center gap-2 rounded-full bg-surface px-3 py-1 text-xs text-muted ring-1 ring-border">
               <MapPin className="h-3.5 w-3.5" />
               {value.serviceArea.city}, {value.serviceArea.county}
             </div>
             <h1 className="mt-4 text-3xl font-semibold tracking-tight md:text-4xl">
               {value.name}
             </h1>
-            <p className="mt-2 text-base text-zinc-300 md:text-lg">{value.tagline}</p>
+            <p className="mt-2 text-base text-muted md:text-lg">{value.tagline}</p>
 
-            <div className="mt-5 flex flex-col gap-2 text-sm text-zinc-200">
+            <div className="mt-5 flex flex-col gap-2 text-sm text-fg">
               {value.differentiators.slice(0, 3).map((d) => (
                 <div key={d} className="inline-flex items-center gap-2">
-                  <BadgeCheck className="h-4 w-4 text-emerald-400" />
+                  <BadgeCheck className="h-4 w-4 text-accent" />
                   <span>{d}</span>
                 </div>
               ))}
@@ -58,14 +58,14 @@ export default function Home() {
           <div className="flex flex-col gap-2">
             <Link
               to="/quote"
-              className="inline-flex items-center justify-center gap-2 rounded-2xl bg-emerald-500 px-5 py-3 text-sm font-semibold text-zinc-950 hover:bg-emerald-400"
+              className="inline-flex items-center justify-center gap-2 rounded-2xl bg-brand px-5 py-3 text-sm font-semibold text-brand-fg transition hover:bg-brand-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
             >
               Request a quote
               <ArrowRight className="h-4 w-4" />
             </Link>
             <Link
               to={user ? '/orders' : '/account'}
-              className="inline-flex items-center justify-center gap-2 rounded-2xl bg-zinc-900 px-5 py-3 text-sm font-semibold text-zinc-50 ring-1 ring-zinc-800 hover:bg-zinc-800"
+              className="inline-flex items-center justify-center gap-2 rounded-2xl bg-surface px-5 py-3 text-sm font-semibold text-fg ring-1 ring-border transition hover:bg-surface-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
             >
               {user ? 'View my orders' : 'Sign in to place an order'}
               <ArrowRight className="h-4 w-4" />
@@ -75,22 +75,22 @@ export default function Home() {
       </section>
 
       <section>
-        <div className="mb-4 flex items-center gap-2 text-sm font-semibold text-zinc-50">
-          <Wrench className="h-4 w-4 text-emerald-400" />
+        <div className="mb-4 flex items-center gap-2 text-sm font-semibold text-fg">
+          <Wrench className="h-4 w-4 text-accent" />
           Services
         </div>
         <div className="grid gap-4 md:grid-cols-3">
           {value.services.map((s) => (
             <div
               key={s.title}
-              className="rounded-2xl border border-zinc-800 bg-zinc-950 p-4"
+              className="rounded-2xl border border-border bg-surface p-4"
             >
               <div className="text-sm font-semibold">{s.title}</div>
-              <div className="mt-1 text-sm text-zinc-300">{s.desc}</div>
+              <div className="mt-1 text-sm text-muted">{s.desc}</div>
               <div className="mt-3">
                 <Link
                   to="/quote"
-                  className="text-sm font-medium text-emerald-300 hover:text-emerald-200"
+                  className="text-sm font-semibold text-accent transition hover:text-accent-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
                 >
                   Get an estimate
                 </Link>
@@ -101,32 +101,32 @@ export default function Home() {
       </section>
 
       <section className="grid gap-4 md:grid-cols-3">
-        <div className="rounded-2xl border border-zinc-800 bg-zinc-950 p-4 md:col-span-2">
+        <div className="rounded-2xl border border-border bg-surface p-4 md:col-span-2">
           <div className="text-sm font-semibold">Why choose us</div>
-          <div className="mt-2 text-sm text-zinc-300">
+          <div className="mt-2 text-sm text-muted">
             Youthful, respectful, and detail-focused installs with pricing about 30% lower
             than many competitors.
           </div>
           <div className="mt-4 flex flex-wrap gap-2 text-xs">
-            <span className="rounded-full bg-zinc-900 px-3 py-1 ring-1 ring-zinc-800">
+            <span className="rounded-full bg-surface-2 px-3 py-1 ring-1 ring-border">
               Clean alignment
             </span>
-            <span className="rounded-full bg-zinc-900 px-3 py-1 ring-1 ring-zinc-800">
+            <span className="rounded-full bg-surface-2 px-3 py-1 ring-1 ring-border">
               Own tools
             </span>
-            <span className="rounded-full bg-zinc-900 px-3 py-1 ring-1 ring-zinc-800">
+            <span className="rounded-full bg-surface-2 px-3 py-1 ring-1 ring-border">
               Fort Wayne only
             </span>
           </div>
         </div>
-        <div className="rounded-2xl border border-zinc-800 bg-zinc-950 p-4">
+        <div className="rounded-2xl border border-border bg-surface p-4">
           <div className="text-sm font-semibold">See our work</div>
-          <div className="mt-2 text-sm text-zinc-300">
+          <div className="mt-2 text-sm text-muted">
             Explore TVs, pictures, and other wall hangings we’ve installed.
           </div>
           <Link
             to="/portfolio"
-            className="mt-4 inline-flex items-center gap-2 rounded-xl bg-zinc-900 px-3 py-2 text-sm text-zinc-50 ring-1 ring-zinc-800 hover:bg-zinc-800"
+            className="mt-4 inline-flex items-center gap-2 rounded-xl bg-surface px-3 py-2 text-sm text-fg ring-1 ring-border transition hover:bg-surface-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
           >
             View portfolio
             <ArrowRight className="h-4 w-4" />

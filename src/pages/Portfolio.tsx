@@ -73,7 +73,7 @@ export default function Portfolio() {
     <div className="flex flex-col gap-6">
       <div>
         <h1 className="text-2xl font-semibold">Portfolio</h1>
-        <p className="mt-1 text-sm text-zinc-300">
+        <p className="mt-1 text-sm text-muted">
           TVs, pictures, and wall hangings we’ve installed. Tap a project for details.
         </p>
       </div>
@@ -83,7 +83,7 @@ export default function Portfolio() {
           {Array.from({ length: 6 }).map((_, i) => (
             <div
               key={i}
-              className="h-56 animate-pulse rounded-2xl border border-zinc-800 bg-zinc-950"
+              className="h-56 animate-pulse rounded-2xl border border-border bg-surface"
             />
           ))}
         </div>
@@ -93,9 +93,9 @@ export default function Portfolio() {
             <Link
               key={p.id}
               to={`/portfolio/${p.slug}`}
-              className="group overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-950"
+              className="group overflow-hidden rounded-2xl border border-border bg-surface transition hover:bg-surface-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
             >
-              <div className="h-40 bg-zinc-900">
+              <div className="h-40 bg-surface-2">
                 {heroImages[p.id] ? (
                   <img
                     src={heroImages[p.id]}
@@ -104,20 +104,20 @@ export default function Portfolio() {
                     className="h-full w-full object-cover transition duration-300 group-hover:scale-[1.02]"
                   />
                 ) : (
-                  <div className="flex h-full items-center justify-center text-xs text-zinc-400">
+                  <div className="flex h-full items-center justify-center text-xs text-subtle">
                     No image yet
                   </div>
                 )}
               </div>
               <div className="p-4">
                 <div className="text-sm font-semibold">{p.title}</div>
-                <div className="mt-1 text-xs text-zinc-400">
+                <div className="mt-1 text-xs text-subtle">
                   {p.category}
                   {p.room_type ? ` • ${p.room_type}` : ''}
                   {p.project_date ? ` • ${p.project_date}` : ''}
                 </div>
                 {p.summary ? (
-                  <div className="mt-2 text-sm text-zinc-300">{p.summary}</div>
+                  <div className="mt-2 text-sm text-muted">{p.summary}</div>
                 ) : null}
               </div>
             </Link>
@@ -127,4 +127,3 @@ export default function Portfolio() {
     </div>
   )
 }
-

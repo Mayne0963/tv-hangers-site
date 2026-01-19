@@ -63,14 +63,14 @@ export default function PortfolioProject() {
   }, [slug])
 
   if (loading) {
-    return <div className="h-64 animate-pulse rounded-2xl border border-zinc-800 bg-zinc-950" />
+    return <div className="h-64 animate-pulse rounded-2xl border border-border bg-surface" />
   }
 
   if (!project) {
     return (
-      <div className="rounded-2xl border border-zinc-800 bg-zinc-950 p-6">
-        <div className="text-sm text-zinc-300">Project not found.</div>
-        <Link to="/portfolio" className="mt-3 inline-block text-sm text-emerald-300">
+      <div className="rounded-2xl border border-border bg-surface p-6">
+        <div className="text-sm text-muted">Project not found.</div>
+        <Link to="/portfolio" className="mt-3 inline-block text-sm font-semibold text-accent">
           Back to portfolio
         </Link>
       </div>
@@ -80,7 +80,7 @@ export default function PortfolioProject() {
   return (
     <div className="flex flex-col gap-6">
       <div>
-        <div className="text-xs text-zinc-400">
+        <div className="text-xs text-subtle">
           {project.category}
           {project.room_type ? ` • ${project.room_type}` : ''}
           {project.project_date ? ` • ${project.project_date}` : ''}
@@ -89,11 +89,11 @@ export default function PortfolioProject() {
       </div>
 
       <div className="grid gap-4 md:grid-cols-2">
-        <div className="overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-950">
+        <div className="overflow-hidden rounded-2xl border border-border bg-surface">
           {imageUrls[0] ? (
             <img src={imageUrls[0]} alt={project.title} className="h-72 w-full object-cover" />
           ) : (
-            <div className="flex h-72 items-center justify-center text-sm text-zinc-400">
+            <div className="flex h-72 items-center justify-center text-sm text-subtle">
               No images yet
             </div>
           )}
@@ -113,23 +113,23 @@ export default function PortfolioProject() {
         </div>
 
         <div className="flex flex-col gap-4">
-          <div className="rounded-2xl border border-zinc-800 bg-zinc-950 p-4">
+          <div className="rounded-2xl border border-border bg-surface p-4">
             <div className="text-sm font-semibold">Project details</div>
-            <div className="mt-2 whitespace-pre-wrap text-sm text-zinc-300">
+            <div className="mt-2 whitespace-pre-wrap text-sm text-muted">
               {project.details ?? 'Details coming soon.'}
             </div>
           </div>
 
           {project.testimonial ? (
-            <div className="rounded-2xl border border-zinc-800 bg-zinc-950 p-4">
+            <div className="rounded-2xl border border-border bg-surface p-4">
               <div className="text-sm font-semibold">Customer note</div>
-              <div className="mt-2 text-sm text-zinc-300">“{project.testimonial}”</div>
+              <div className="mt-2 text-sm text-muted">“{project.testimonial}”</div>
             </div>
           ) : null}
 
           <Link
             to="/quote"
-            className="inline-flex items-center justify-center rounded-2xl bg-emerald-500 px-5 py-3 text-sm font-semibold text-zinc-950 hover:bg-emerald-400"
+            className="inline-flex items-center justify-center rounded-2xl bg-brand px-5 py-3 text-sm font-semibold text-brand-fg transition hover:bg-brand-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
           >
             Request a similar install
           </Link>
@@ -138,4 +138,3 @@ export default function PortfolioProject() {
     </div>
   )
 }
-

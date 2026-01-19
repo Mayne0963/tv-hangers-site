@@ -25,19 +25,19 @@ export default function Faq() {
     <div className="flex flex-col gap-6">
       <div>
         <h1 className="text-2xl font-semibold">FAQ</h1>
-        <p className="mt-1 text-sm text-zinc-300">Common questions about installs.</p>
+        <p className="mt-1 text-sm text-muted">Common questions about installs.</p>
       </div>
 
       <div className="grid gap-3">
         {value.map((item) => (
           <details
             key={item.q}
-            className="group rounded-2xl border border-zinc-800 bg-zinc-950 p-4"
+            className="group rounded-2xl border border-border bg-surface p-4"
           >
-            <summary className="cursor-pointer list-none text-sm font-semibold text-zinc-50">
+            <summary className="cursor-pointer list-none text-sm font-semibold text-fg">
               {item.q}
             </summary>
-            <div className="mt-2 text-sm text-zinc-300">{item.a}</div>
+            <div className="mt-2 text-sm text-muted">{item.a}</div>
           </details>
         ))}
       </div>
