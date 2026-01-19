@@ -31,7 +31,7 @@ export default function NavBar() {
         <Link to="/" className="flex items-center gap-2">
           <div className="h-8 w-8 rounded-xl bg-gradient-to-br from-brand to-accent" />
           <div className="leading-tight">
-            <div className="text-sm font-semibold">Amari & Jayton</div>
+            <div className="text-sm font-semibold">A&J</div>
             <div className="text-xs text-muted">TV & Wall Hangings</div>
           </div>
         </Link>

@@ -1,8 +1,8 @@
-# Amari & Jayton TV Mounting
+# A&J TV Mounting
 
 Production site: https://tv-hangers-site.vercel.app
 
-This is the PWA for Amari & Jayton’s TV mounting and wall hanging service in Fort Wayne.
+This is the PWA for A&J’s TV mounting and wall hanging service in Fort Wayne.
 
 Key tech:
 - Vite + React + TypeScript frontend

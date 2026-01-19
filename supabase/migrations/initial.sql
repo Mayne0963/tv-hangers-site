@@ -343,7 +343,7 @@ values
   (
     'business.info',
     jsonb_build_object(
-      'name', 'Amari & Jayton Mounting',
+      'name', 'A&J Mounting',
       'tagline', 'Professional TV & wall-hanging installs in Fort Wayne',
       'serviceArea', jsonb_build_object('county', 'Allen County', 'city', 'Fort Wayne'),
       'differentiators', jsonb_build_array(

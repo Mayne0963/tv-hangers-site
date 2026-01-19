@@ -30,7 +30,7 @@ export default defineConfig({
         enabled: true,
       },
       manifest: {
-        name: 'Amari & Jayton Mounting',
+        name: 'A&J Mounting',
         short_name: 'TV Hangers',
         theme_color: '#09090b',
         background_color: '#09090b',

@@ -13,7 +13,7 @@ type BusinessInfo = {
 }
 
 const fallback: BusinessInfo = {
-  name: 'Amari & Jayton Mounting',
+  name: 'A&J Mounting',
   tagline: 'TV mounting & wall hangings in Fort Wayne',
   serviceArea: { county: 'Allen County', city: 'Fort Wayne' },
   differentiators: ['30% lower pricing than competitors', 'Own tools & transportation'],
